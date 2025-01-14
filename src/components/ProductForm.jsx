@@ -1,7 +1,6 @@
 import { Formik, Form } from "formik";
-import { MyTextInput } from "../helpers/MyTextInput";
+import { MyTextInput, SelectInput } from "../helpers";
 import * as Yup from "yup";
-import { comment } from "postcss";
 
 export function ProductForm() {
 
@@ -12,6 +11,7 @@ export function ProductForm() {
                 initialValues={{
                     name: "",
                     description: "",
+                    price: "",
                 }}
                 validationSchema={Yup.object({
                     name: Yup.string()
@@ -21,6 +21,10 @@ export function ProductForm() {
                     description: Yup.string()
                         .min(2, "trop petit")
                         .max(10, "trop long!")
+                        .required("Ce champ est obligatoire"),
+                    price: Yup.number()
+                        .integer("Entrez un nombre entier")
+                        .positive("Entrez un nombre positif")
                         .required("Ce champ est obligatoire"),
                 })}
                 onSubmit={(values) => {
@@ -40,6 +44,21 @@ export function ProductForm() {
                         type="text"
                         placeholder="Entrez la description du produit"
                     />
+                    <MyTextInput
+                        label="Price"
+                        name="price"
+                        type="number"
+                        placeholder="Entrez le prix du produit"
+                    />
+
+                    <SelectInput label="Menu" name="menu">
+                        <option value="">Selectionner un menu</option>
+                        <option value="burguer">Burguer</option>
+                        <option value="pizza">Pizza</option>
+                        <option value="pasta">Pasta</option>
+                        <option value="salad">Salad</option>
+                        <option value="autrer">Autres</option>
+                    </SelectInput>
 
                     <button type="submit" className="px-3 py-2 bg-black border rounded-lg w-1/3 text-white text-sm font-semibold mt-4">Submit</button>
                 </Form>

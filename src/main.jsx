@@ -7,6 +7,10 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    {/* <div className="bg-cover bg-center h-screen">
+      <Header />
+      <Accueil />
+    </div> */}
     <Header />
     <Accueil />
   </StrictMode>,

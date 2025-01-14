@@ -1,16 +1,16 @@
-import { MyTextInput, Tabs } from "./helpers";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { ProductForm } from "./components";
+import { Tabs } from "./helpers";
 
-export default function ProductForm() {
+export default function Accueil() {
+  // <p className="text-gray-500">This is the <em className="font-semibold text-gray-800">second</em> item's tab body.</p>
     const tabs = [
         {
           label: 'Produits',
-          content: <p className="text-gray-500">This is the <em className="font-semibold text-gray-800">first</em> item's tab body.</p>,
+          content: <ProductForm />,
         },
         {
           label: 'Menus',
-          content: <p className="text-gray-500">This is the <em className="font-semibold text-gray-800">second</em> item's tab body.</p>,
+          content: <ProductForm />,
         },
         // {
         //   label: 'Tab 3',

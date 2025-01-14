@@ -6,10 +6,10 @@ export function MyTextInput({ label, ...props }) {
 
   return (
     <>
-      <label htmlFor={props.id || props.name} className="text-2xl font-bold text-red-500">{label}</label>
+      <label htmlFor={props.id || props.name} className="font-bold">{label}</label>
       <input 
         {...props} {...field} 
-        className="py-2.5 px-2 border-2 border-solid border-[#FFC146] rounded-lg bg-gray-100 appearance-none text-gray-700" 
+        className="p-2 w-full border text-xs border-solid border-[#FFC146] rounded-lg bg-gray-100 appearance-none text-gray-700" 
       />
        
       {meta.touched && meta.error ? ( <div>{meta.error}</div> ) : null}

@@ -1,24 +1,23 @@
 import { Formik, Form } from "formik";
 import { MyTextInput } from "../helpers/MyTextInput";
 import * as Yup from "yup";
-import { comment } from "postcss";
 
-export function ProductForm() {
+export function MenuForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold">Informations Produits</h1>
+            <h1 className="text-center my-4 font-bold">Informations Menu</h1>
             <Formik
                 initialValues={{
-                    name: "",
                     description: "",
+                    commentaire: "",
                 }}
                 validationSchema={Yup.object({
-                    name: Yup.string()
+                    description: Yup.string()
                         .min(5, "trop petit")
                         .max(30, "trop grand")
                         .required("Ce champ est obligatoire"),
-                    description: Yup.string()
+                    commentaire: Yup.string()
                         .min(2, "trop petit")
                         .max(10, "trop long!")
                         .required("Ce champ est obligatoire"),
@@ -29,19 +28,19 @@ export function ProductForm() {
             >
                 <Form className="flex flex-col mb-4">
                     <MyTextInput
-                        label="Name"
-                        name="name"
-                        type="text"
-                        placeholder="Entrez le nom du produit"
-                    />
-                    <MyTextInput
                         label="Description"
                         name="description"
                         type="text"
-                        placeholder="Entrez la description du produit"
+                        placeholder="Entrez la description"
+                    />
+                    <MyTextInput
+                        label="Commentaire"
+                        name="commentaire"
+                        type="text"
+                        placeholder="Entrez votre commentaire"
                     />
 
-                    <button type="submit" className="px-3 py-2 bg-black border rounded-lg w-1/3 text-white text-sm font-semibold mt-4">Submit</button>
+                    <button type="submit" className="px-3 py-2 bg-black border rounded-lg w-1/3 text-white text-sm mt-4">Submit</button>
                 </Form>
             </Formik>
         </div>

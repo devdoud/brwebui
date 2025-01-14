@@ -1,4 +1,4 @@
-import { ProductForm } from "./components";
+import { MenuForm, ProductForm } from "./components";
 import { Tabs } from "./helpers";
 
 export default function Accueil() {
@@ -10,7 +10,7 @@ export default function Accueil() {
         },
         {
           label: 'Menus',
-          content: <ProductForm />,
+          content: <MenuForm />,
         },
         // {
         //   label: 'Tab 3',

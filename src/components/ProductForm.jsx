@@ -6,7 +6,7 @@ export function ProductForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold">Informations Produits</h1>
+            <h1 className="text-center my-4 font-bold text-2xl">Informations Produits</h1>
             <Formik
                 initialValues={{
                     name: "",
@@ -37,18 +37,21 @@ export function ProductForm() {
                         name="name"
                         type="text"
                         placeholder="Entrez le nom du produit"
+                        required={true}
                     />
                     <MyTextInput
                         label="Description"
                         name="description"
                         type="text"
                         placeholder="Entrez la description du produit"
+                        required={true}
                     />
                     <MyTextInput
                         label="Price"
                         name="price"
                         type="number"
                         placeholder="Entrez le prix du produit"
+                        required={true}
                     />
 
                     <SelectInput label="Menu" name="menu">

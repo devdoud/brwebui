@@ -6,7 +6,10 @@ export function MyTextInput({ label, ...props }) {
 
   return (
     <div className="flex flex-col mb-4">
-      <label htmlFor={props.id || props.name} className="font-semibold text-sm">{label}</label>
+      <label htmlFor={props.id || props.name} className="font-semibold text-sm">
+          {label}
+          {props.required ? <span className="text-red-500 font-medium ml-1">*</span> : null}
+      </label>
       <input 
         {...props} {...field} 
         className="p-2 w-full border text-xs border-solid border-[#FFC146] rounded-lg bg-gray-100 appearance-none text-gray-700 mb-1" 

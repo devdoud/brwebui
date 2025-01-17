@@ -40,7 +40,7 @@ export function MenuForm() {
                         placeholder="Entrez votre commentaire"
                     />
 
-                    <button type="submit" className="px-3 py-2 bg-black border rounded-lg w-1/3 text-white font-semibold text-sm mt-4">Submit</button>
+                    <button type="submit" className="px-3 py-2 bg-[#292929] border rounded-lg w-1/3 text-white font-semibold text-sm mt-4">Submit</button>
                 </Form>
             </Formik>
         </div>

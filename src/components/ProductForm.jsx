@@ -60,7 +60,7 @@ export function ProductForm() {
                         <option value="autrer">Autres</option>
                     </SelectInput>
 
-                    <button type="submit" className="px-3 py-2 bg-black border rounded-lg w-1/3 text-white text-sm font-semibold mt-4">Submit</button>
+                    <button type="submit" className="px-3 py-2 bg-[#292929] border rounded-lg w-1/3 text-white text-sm font-semibold mt-4">Submit</button>
                 </Form>
             </Formik>
         </div>

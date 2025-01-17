@@ -1,17 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Accueil from './Accueil.jsx'
-import { Header } from './components/Header.jsx'
-import App from './App.jsx'
+import Home from './Home.jsx'
+import { Header, Top } from './components'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <div className="bg-cover bg-center h-screen">
-      <Header />
-      <Accueil />
-    </div> */}
-    <Header />
-    <Accueil />
+      <div className="relative h-screen">
+          <Top/>
+          <div className="absolute top-0 right-0 bg-transparent w-full">
+              <Header />
+              <Home />
+          </div>
+      </div>
   </StrictMode>,
-)
+);

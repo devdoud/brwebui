@@ -2,7 +2,7 @@
 export function Header() {
     return (
         <div className="bg-[#FFC146] p-8 flex justify-between items-center shadow-md h-16">
-            <img src="src\assets\images\react.svg" alt="React Logo" />
+            <img src="src/assets/images/logo_1.jpg" alt="Logo Benin Restoo" className="w-[42px]" />
             <ul className='flex'>
                 <li className="mr-3">Products</li>
                 <li className="mr-3">Menus</li>

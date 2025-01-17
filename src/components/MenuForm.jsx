@@ -6,7 +6,7 @@ export function MenuForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold">Informations Menu</h1>
+            <h1 className="text-center my-4 font-bold text-2xl text-[#292929">Informations Menu</h1>
             <Formik
                 initialValues={{
                     description: "",

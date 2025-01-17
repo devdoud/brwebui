@@ -6,7 +6,7 @@ export function ProductForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold text-2xl">Informations Produits</h1>
+            <h1 className="text-center my-4 font-bold text-2xl text-[#292929]">Informations Produits</h1>
             <Formik
                 initialValues={{
                     name: "",
@@ -62,6 +62,13 @@ export function ProductForm() {
                         <option value="salad">Salad</option>
                         <option value="autrer">Autres</option>
                     </SelectInput>
+
+                    <MyTextInput
+                        label="Image"
+                        name="image"
+                        type="file"
+                        placeholder="Choisir une image"
+                    />
 
                     <button type="submit" className="px-3 py-2 bg-[#292929] border rounded-lg w-1/3 text-white text-sm font-semibold mt-4">Submit</button>
                 </Form>

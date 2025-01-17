@@ -11,8 +11,8 @@ export function Tabs({ tabs }) {
             key={index}
             className={`flex-1 py-2 text-center ${
               activeTab === index
-                ? 'border-b-2 border-[#FFC146] text-[#FFC146] font-semibold'
-                : 'text-gray-500 hover:text-gray-800'
+                ? 'border-b-2 border-[#FFC146] text-[#FFC146] font-bold'
+                : 'text-[#292929] font-bold hover:text-gray-800'
             }`}
             onClick={() => setActiveTab(index)}
           >

@@ -20,7 +20,7 @@ export function ProductForm() {
                         .required("Ce champ est obligatoire"),
                     description: Yup.string()
                         .min(2, "trop petit")
-                        .max(10, "trop long!")
+                        .max(50, "trop long!")
                         .required("Ce champ est obligatoire"),
                     price: Yup.number()
                         .integer("Entrez un nombre entier")

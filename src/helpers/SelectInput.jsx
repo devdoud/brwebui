@@ -5,7 +5,7 @@ export function SelectInput({ label, ...props }) {
     
     const [field, meta] = useField(props);
     return (
-        <>
+        <div className="mb-4">
             <label htmlFor={props.id || props.name} className="font-semibold text-sm">{label}</label>
             <select 
                 {...field} 
@@ -15,6 +15,6 @@ export function SelectInput({ label, ...props }) {
             {meta.touched && meta.error ? (
                 <div className="text-xs text-red-500">{meta.error}</div>
             ) : null}
-        </>
+        </div>
     );
 }

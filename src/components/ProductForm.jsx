@@ -44,7 +44,7 @@ export function ProductForm() {
             otherwise: Yup.string()
             .required("Ce champ est obligatoire"),         
         }),
-        name: Yup.string().when("isExelUploaded", {
+        image: Yup.mixed().when("isExelUploaded", {
             is: true,
             then: Yup.string().notRequired(),
             otherwise: Yup.mixed()
@@ -195,7 +195,7 @@ export function ProductForm() {
                                     type="file"
                                     accept=".xlsx, .xls"
                                     onChange={handleFileUpload}
-                                    className="p-2 w-full border text-xs border-solid border-[#FFC146] rounded-lg bg-gray-100 appearance-none text-gray-700 mb-1"
+                                    className="p-2 w-full border text-xs border-solid border-[#FFC146] rounded-lg bg-gray-100 appearance-none text-gray-700 mb-4"
                                 />
                             </>
                         )}
@@ -204,6 +204,7 @@ export function ProductForm() {
                             <input 
                                 type="checkbox" 
                                 onChange={(e) => setFieldValue('isExelUploaded', e.target.checked)}
+                                className="w-4 h-4 rounded border-[#292929] bg-[#FFC146] checked:bg-[#FFC146] checked:border-[#292929] focus:outline-none"
                             />
                             <label className="font-semibold text-sm text-[#292929]" > 
                                 Importer un fichier Excel

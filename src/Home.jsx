@@ -14,7 +14,7 @@ export default function Home() {
       ];
     
     return (
-        <div className="grid grid-cols-12 h-full mt-8 z-10">
+        <div className="grid grid-cols-12 h-full mt-8">
             <div className="grid col-span-8 col-start-3 h-screen">
                 <Tabs tabs={tabs} />
             </div>

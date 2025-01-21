@@ -9,6 +9,7 @@ import * as Yup from "yup";
 export function ProductForm() {
     const [excelData, setExcelData] = useState([]);
     const [isExelUploaded, setIsExcelUploaded] = useState(false);
+    const [checked, setChecked] = useState(false);
     
     let navigate = useNavigate();
     
@@ -18,25 +19,25 @@ export function ProductForm() {
             is: true,
             then: Yup.string().notRequired(),
             otherwise: Yup.string()
-            .min(5, "trop petit")
-            .max(1000, "trop grand")
-            .required("Ce champ est obligatoire"),         
+                .min(5, "trop petit")
+                .max(1000, "trop grand")
+                .required("Ce champ est obligatoire"),         
         }),
         description: Yup.string().when("isExelUploaded", {
             is: true,
             then: Yup.string().notRequired(),
             otherwise: Yup.string()
-            .min(5, "trop petit")
-            .max(1500, "trop grand")
-            .required("Ce champ est obligatoire"),         
+                .min(5, "trop petit")
+                .max(1500, "trop grand")
+                .required("Ce champ est obligatoire"),         
         }),
         price: Yup.number().when("isExelUploaded", {
             is: true,
             then: Yup.number().notRequired(),
             otherwise: Yup.number()
-            .typeError("Le prix doit etre un nombre")
-            .positive("Entrez un nombre positif")
-            .required("Ce champ est obligatoire"),         
+                .typeError("Le prix doit etre un nombre")
+                .positive("Entrez un nombre positif")
+                .required("Ce champ est obligatoire"),         
         }),
         menu: Yup.string().when("isExelUploaded", {
             is: true,
@@ -48,7 +49,7 @@ export function ProductForm() {
             is: true,
             then: Yup.string().notRequired(),
             otherwise: Yup.mixed()
-            .required("Ce champ est obligatoire"),         
+                .required("Ce champ est obligatoire"),         
         })
     }); 
 
@@ -74,7 +75,8 @@ export function ProductForm() {
     // handle form submission 
     const handleSubmit = async (values, { setSubmitting, setFieldValue }) => {
         setSubmitting(true); // Disable the submit button
-        
+        console.log(values.isExelUploaded)
+
         try {
             if(values.isExelUploaded) {
                 // Transform Excel file
@@ -90,9 +92,9 @@ export function ProductForm() {
                 console.log("Donnee transforme du fichier Excel : ",transformedData);
 
                 // Send the transformed data to the server
-                await axios.post("/api/products/bulk", transformedData);
-                alert("Données importées avec succès");
-                navigate("/products");
+                // await axios.post("/api/products/bulk", transformedData);
+                // alert("Données importées avec succès");
+                // navigate("/products");
 
                 // Reset the form
                 setExcelData([]);
@@ -110,8 +112,8 @@ export function ProductForm() {
                 console.log("Données du formulaire individuel : ",formData);
 
                 // Send the individual form data to the server
-                await axios.post("/api/products", formData);
-                alert("Produit ajoute avec succes !");
+                // await axios.post("/api/products", formData);
+                // alert("Produit ajoute avec succes !");
 
                 // Reset the form
                 setFieldValue("name", "");
@@ -200,14 +202,36 @@ export function ProductForm() {
                             </>
                         )}
 
-                        <div className="flex gap-1 mb-4">
+                        <div 
+                            className="flex item-center gap-1 mb-4" 
+                        >
                             <input 
                                 type="checkbox" 
-                                onChange={(e) => setFieldValue('isExelUploaded', e.target.checked)}
-                                className="w-4 h-4 rounded border-[#292929] bg-[#FFC146] checked:bg-[#FFC146] checked:border-[#292929] focus:outline-none"
+                                checked={checked}
+                                onChange={(e) => {
+                                    setFieldValue('isExelUploaded', e.target.checked)
+                                    setChecked(e.target.checked)
+                                }}
+                                className={`w-4 h-4 rounded focus:outline-none`}
+                                style={{
+                                    cursor: "pointer",
+                                    backgroundColor: checked ? "#FFC146" : "#F3F4F6",
+                                    transition: 'backgroundColor 0.4s ease',
+                                }}
                             />
+                            {/* { checked && (
+                                <span
+                                    style={{
+                                        width: '8px',
+                                        height: '8px',
+                                        border: 'solid #292929',
+                                        borderWidth: '0 2px 2px 0',
+                                        transform: 'rotate(45deg)',
+                                    }}
+                                ></span>
+                            )} */}
                             <label className="font-semibold text-sm text-[#292929]" > 
-                                Importer un fichier Excel
+                                Importer un fichier Excel {checked ? "✔" : ""}
                             </label>
                         </div>
 

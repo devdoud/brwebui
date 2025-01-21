@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('assets/images/screen.jpg')"
+        'hero-pattern': "url('assets/images/screen.jpg')",
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

@@ -3,3 +3,4 @@ export { Tabs } from './Tabs';
 export { NumberInput } from './NumberInput';
 export { SelectInput } from './SelectInput';
 export { FileInput } from './FileInput';
+export { ExcelInput } from './ExcelInput';

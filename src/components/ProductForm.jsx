@@ -42,17 +42,19 @@ export function ProductForm() {
             formData.append('menu', values.menu);
             formData.append('image', values.image);
 
-            const response = await fetch('http://localhost:3001/products', {
-                method: 'POST',
-                body: formData,
-            });
+            console.log(ok)
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            // const response = await fetch('http://localhost:3001/products', {
+            //     method: 'POST',
+            //     body: formData,
+            // });
 
-            const result = await response.json();
-            console.log('Success:', result);
+            // if (!response.ok) {
+            //     throw new Error('Network response was not ok');
+            // }
+
+            // const result = await response.json();
+            // console.log('Success:', result);
 
             navigate('/products');
         } catch (error) {

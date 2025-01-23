@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function Product ({ image }) {
+export function Product ({ image, name, description, price, onProductClick }) {
     const [isActive, setIsActive] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -29,7 +29,7 @@ export function Product ({ image }) {
     }
 
     return (
-        <div className="bg-[#FFC146] h-64 rounded">
+        <div className="bg-[#FFC146] h-64 rounded cursor-pointer" onClick={() => onProductClick({ name, description, price })}>
             <div 
                 style={{
                     backgroundImage: `url(${image})`,
@@ -44,8 +44,8 @@ export function Product ({ image }) {
             </div>
             <div className="p-2">
                 <div className="flex align items-center justify-between mb-1">
-                    <h6 className="font-medium text-[#292929] text-sm">Diffuseur de Parfum</h6>
-                    <p className={isActive ? "text-green-700 text-[.65rem] font-bold" : "text-red-500 text-[.65rem] font-bold"}>
+                    <h6 className="font-medium text-[#292929] text-sm">{name}</h6>
+                    <div className={isActive ? "text-green-700 text-[.65rem] font-bold" : "text-red-500 text-[.65rem] font-bold"}>
                         {
                             isActive 
                             ? 
@@ -57,11 +57,10 @@ export function Product ({ image }) {
                                     <span className="rounded-full bg-red-500 h-1.5 w-1.5"></span> Fermé
                                 </div>
                         }
-                    </p>
+                    </div>
                 </div>
-                <p className="text-[.63rem] text-[#292929]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Iste facilis quo aliquid iusto, provident nihil accusamus consequatur repudiandae.
-                </p>
+                <p className="text-[.63rem] text-[#292929]"> {description}</p>
+                <p className="text-right mt-2">{price}</p>
             </div>
         </div>
     );

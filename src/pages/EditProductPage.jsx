@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import { MyTextInput } from '../helpers';
 import { Header } from '../components';
+import * as Yup from "yup";
 import axios from 'axios';
 
 export function EditProductPage() {
@@ -23,10 +24,10 @@ export function EditProductPage() {
         fetchProduct();
     }, [productId]);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
-    };
+    // const handleChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
+    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,6 +38,21 @@ export function EditProductPage() {
             console.error('Error updating product:', error);
         }
     };
+
+    const validation = Yup.object({
+        name: Yup.string()
+            .min(5, "trop petit")
+            .max(1000, "trop grand")
+            .required("Ce champ est obligatoire"),
+        description: Yup.string()
+            .min(5, "trop petit")
+            .max(1000, "trop grand")
+            .required("Ce champ est obligatoire"),
+        price: Yup.number()
+            .typeError("Le prix doit etre un nombre")
+            .positive("Entrez un nombre positif")
+            .required("Ce champ est obligatoire"),
+    })
 
     return (
         <div className="">
@@ -92,13 +108,49 @@ export function EditProductPage() {
                         description: '',
                         price: '',
                       }}
-                      validatioSchema={{
-
-                      }}  
+                      validationSchema={validation}  
                       onsSubmit={handleSubmit}
                     >
 
+                      {
+                        ({ setFieldValue, isSubmitting }) =>  (
+                            <Form className='flex flex-col mb-4'>
+                                <MyTextInput 
+                                    label="Name"
+                                    name="name"
+                                    type="text"
+                                    placeholder="Entrez le nouveau nom du produit"
 
+                                />
+                                <MyTextInput 
+                                    label="Description"
+                                    name="description"
+                                    type="text"
+                                    placeholder="Entrez la nouvelle description"
+
+                                />
+
+                                <MyTextInput
+                                    label="Price"
+                                    name="price"
+                                    type="number"
+                                    placeholder="Entrez le nouveau prix du produit"
+                                />
+
+                                <div className="flex gap-2">
+
+                                    <button type="submit" disabled={isSubmitting} className="px-3 py-2 bg-[#292929] border rounded-lg sm:w-1/6 w-2/3 text-white text-sm font-semibold mt-4">
+                                        { isSubmitting ? "En cours..." : "Enregistrer" }
+                                    </button>
+
+                                    <button type="submit" disabled={isSubmitting} className="px-3 py-2 bg-red-500 border rounded-lg sm:w-1/6 w-1/3 text-white text-sm font-semibold mt-4">
+                                        { isSubmitting ? "En cours..." : "Annuler" }
+                                    </button>
+
+                                </div>
+                            </Form>
+                        )
+                      }
                     </Formik>
                 </div>
 

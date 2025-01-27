@@ -14,22 +14,22 @@ export function Product ({ image, name, description, price, onProductClick }) {
 
     if (isLoading) {
         return (
-            <div className="bg-gray-400 h-64 rounded animate-pulse rounded-md">
+            <div className="bg-gray-400 sm:h-64 h-40 rounded animate-pulse rounded-md">
                 <div className="h-[60%] bg-gray-300 shadow"></div>
                 <div className="p-2">
                     <div className="w-full flex gap-2 mb-2">
-                        <div className="h-6 bg-gray-300 mb-2 w-3/4 shadow rounded"></div>  
-                        <div className="h-6 bg-gray-300 mb-2 shadow w-1/4 rounded"></div>
+                        <div className="sm:h-6 h-3 bg-gray-300 sm:mb-2 w-3/4 shadow rounded"></div>  
+                        <div className="sm:h-6 h-3 bg-gray-300 sm:mb-2 shadow w-1/4 rounded"></div>
                     </div>
                     
-                    <div className="h-10 bg-gray-300 w-full shadow rounded"></div>
+                    <div className="sm:h-10 h-5 bg-gray-300 w-full shadow rounded"></div>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="bg-[#FFC146] h-64 rounded cursor-pointer" onClick={() => onProductClick({ name, description, price })}>
+        <div className="bg-[#FFC146] sm:h-64 h-40 rounded cursor-pointer" onClick={() => onProductClick({ name, description, price })}>
             <div 
                 style={{
                     backgroundImage: `url(${image})`,
@@ -44,7 +44,7 @@ export function Product ({ image, name, description, price, onProductClick }) {
             </div>
             <div className="p-2">
                 <div className="flex align items-center justify-between mb-1">
-                    <h6 className="font-medium text-[#292929] text-sm">{name}</h6>
+                    <h6 className="font-medium text-[#292929] sm:text-sm text-xs">{name}</h6>
                     <div className={isActive ? "text-green-700 text-[.65rem] font-bold" : "text-red-500 text-[.65rem] font-bold"}>
                         {
                             isActive 
@@ -60,7 +60,7 @@ export function Product ({ image, name, description, price, onProductClick }) {
                     </div>
                 </div>
                 <p className="text-[.63rem] text-[#292929]"> {description}</p>
-                <p className="text-right mt-2">{price}</p>
+                <p className="text-right sm:mt-4 sm:text-sm text-xs font-semibold text-[#292929]">{price} fcfa</p>
             </div>
         </div>
     );

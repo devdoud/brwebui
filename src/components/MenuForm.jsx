@@ -6,7 +6,7 @@ export function MenuForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold text-2xl text-[#292929]">Informations Menu</h1>
+            <h1 className="text-center my-4 font-bold sm:text-2xl text-xl text-[#292929]">Informations Menu</h1>
             <Formik
                 initialValues={{
                     description: "",
@@ -40,7 +40,7 @@ export function MenuForm() {
                         placeholder="Entrez votre commentaire"
                     />
 
-                    <button type="submit" className="px-3 py-2 bg-[#292929] border rounded-lg w-1/3 text-white font-semibold text-sm mt-4">Submit</button>
+                    <button type="submit" className="sm:px-3 px-2 py-2 sm:w-1/6 w-3/5 bg-[#292929] border rounded-lg text-white font-semibold text-sm mt-4">Submit</button>
                 </Form>
             </Formik>
         </div>

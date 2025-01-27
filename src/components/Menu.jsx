@@ -29,18 +29,18 @@ export function Menu({ image, name, menuId }) {
     
     if(isLoading) {
         return(
-            <div className="bg-gray-400 h-60 rounded animate-pulse rounded-md">
+            <div className="bg-gray-400 sm:h-60 h-40 rounded animate-pulse rounded-md">
                 <div className="h-[75%] bg-gray-300 shadow"></div>
-                <div className="p-2 flex gap-2 items-center mt-2">
-                    <div className="w-2/3 h-6 bg-gray-200 shadow rounded"></div>
-                    <div className="h-6 bg-gray-200 w-1/3 shadow rounded"></div>
+                <div className="p-2 flex gap-2 items-center sm:my-2 mt-2">
+                    <div className="w-2/3 sm:h-6 h-3 bg-gray-200 shadow rounded"></div>
+                    <div className="sm:h-6 h-3 bg-gray-200 w-1/3 shadow rounded"></div>
                 </div>
             </div>
         );
     }
     
     return(
-        <div onClick={handleMenuClick} className="bg-gray-200 h-60 rounded shadow cursor-pointer">
+        <div onClick={handleMenuClick} className="bg-gray-200 sm:h-60 h-40 rounded shadow cursor-pointer">
             <div
                 style={{
                     backgroundImage: `url(${image})`,
@@ -51,8 +51,8 @@ export function Menu({ image, name, menuId }) {
                     borderRadius: '4px'
                 }}
             ></div>
-            <div className="p-2 flex items-center justify-between mt-2">
-                <h5>{ name }</h5>
+            <div className="p-2 flex items-center justify-between my-2">
+                <h5 className="font-semibold text-[#292929] sm:text-sm text-xs">{ name }</h5>
                 <div className={isActive ? "text-green-700 text-[.65rem] font-bold" : "text-red-500 text-[.65rem] font-bold"}>
                     {
                         isActive 

@@ -94,7 +94,7 @@ export function ProductForm() {
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-center my-4 font-bold text-2xl text-[#292929]">Informations Produits</h1>
+            <h1 className="text-center my-4 font-bold sm:text-2xl text-xl text-[#292929]">Informations Produits</h1>
             <div className="flex items-center gap-1 mb-4">
                 <input 
                     type="checkbox" 

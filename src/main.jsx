@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from "react-router";
 import App from './App'
 import './index.css'
-import { ProductsPage, MenuPage } from './pages';
+import { ProductsPage, MenuPage, EditProductPage } from './pages';
 
 createRoot(document.getElementById('root')).render(
 //   <StrictMode>
@@ -25,6 +25,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="products" element={<ProductsPage />} />
+        <Route path="products/:productId/edit" element={<EditProductPage />} />
         <Route path="menus" element={<MenuPage />} />
         <Route path="menus/:menuId/products" element={<ProductsPage />} />
       </Routes>
